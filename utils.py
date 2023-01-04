@@ -37,8 +37,8 @@ def listOfLOLMatches(puuid:str):
   return res
 
 def createDF(puuid:str, matches:list):
-  if len(matches) > 2:
-    matches = matches[:6]
+  # if len(matches) > 2:
+  #   matches = matches[:6]
     
   df = pd.DataFrame()
 
