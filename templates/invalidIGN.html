@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Error</title>
+    <!--   This is where you link your style sheets -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='main.css') }}">
+</head>
+<body>
+  <h1>An Error Occurred</h1>
+  <p style="text-align:center;">The IGN you entered is invalid. Try again.</p>
+  <a href="{{ url_for('home') }}"><button class='blue-btn'>Home</button></a>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head> 
+<!--  Head section contains information like page name, style sheets. 
+  Usually you can copy-paste the code for this section from a boilerplate
+  -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Andylyzer</title>
+    <!--   This is where you link your style sheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+    
+  <div class='bg'>
+    <div class='content'>
+    <h1>{{IGN}}'s Stats</h1>
+  <!--  A button that redirect users to the homepage -->
+      <a href="{{ url_for('home') }}"><button class='blue-btn'>Home</button></a>
+      
+    
+      <!--     Summary card for tweets    -->
+        <li class='match'>
+          <p class='card_heading'>
+            Your recent matches:
+          </p>
+          <p> Your winrate over the past {{ numMatches }} games: {{ Winrate }} 
+   Your record: {{Record}} </p> <p> Displaying your last {{ numMatches }} matches... </p>
+        </li>
+      <!--     Jinja2 Syntax    -->
+        {% for match in matches %} 
+        <li class="match">
+  
+        <p id='match_won'>
+          <strong>{{ match.Won }}</strong>
+        </p>
+          
+        <p id='match_kdr'> 
+          <span > Kill death ratio: </span>
+          {{ match.KDA }} 
+        </p>
+          
+        <p class='match_record'> 
+          <span > Record: </span>
+          {{ match.Record }}
+        </p>
+
+        <p class='CC'> 
+          <span > CC: </span>
+          {{ match.CC }}
+        </p>
+
+        <p id='KP'> 
+          <span > Kill Participation: </span>
+          {{ match.KillParticipation }}
+        </p>
+
+        <p class='CSperMin'> 
+          <span > CS per Minute: </span>
+          {{ match.CSperMin }}
+        </p>
+
+        <p class='totalCS'> 
+          <span > Total CS: </span>
+          {{ match.CS }}
+        </p>
+
+        <p class='dmgPerMin'> 
+          <span > Damage per Minute: </span>
+          {{ match.DMGperMin }}
+        </p>
+          
+        </li>
+        {% endfor %} 
+      </div>
+      
+        
+    </div> 
+      
+    
+    
+</body>
+</html>
